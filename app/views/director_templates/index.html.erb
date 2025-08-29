@@ -1,11 +1,22 @@
-<h1>List of directors</h1>
+<nav aria-label="breadcrumb">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li>Directors</li>
+  </ul>
+</nav>
 
-<ul>
-  <% @list_of_directors.each do |a_director| %>
-  <li>
-    <a href="/directors/<%=a_director.id%>">
-      <%= a_director.first_name %> <%= a_director.last_name%>
-    </a>
-  </li>
-  <% end %>
-</ul>
+<article>
+  <header>
+    <h1>List of directors</h1>
+  </header>
+
+  <ul>
+    <% @list_of_directors.each do |a_director| %>
+    <li>
+      <a href="/directors/<%=a_director.id%>">
+        <%= a_director.first_name %> <%= a_director.last_name%>
+      </a>
+    </li>
+    <% end %>
+  </ul>
+</article>

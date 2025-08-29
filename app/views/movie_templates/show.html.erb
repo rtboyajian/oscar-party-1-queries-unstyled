@@ -1,39 +1,51 @@
-<h1><%= @the_movie.title %></h1>
+<nav aria-label="breadcrumb">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/movies">Movies</a></li>
+    <li><%= "#{@the_movie.title}" %></li>
+  </ul>
+</nav>
 
-<dl>
-  <dt>Image</dt>
-  <dd>
-    <img src="<%= @the_movie.image %>" width="250">
-  </dd>
-    
+<article>
+  <header>
+    <h1><%= @the_movie.title %></h1>
+  </header>
 
-  <dt>Year</dt>
-  <dd>
-    <%= @the_movie.year %>
-  </dd>
-
-  <dt>Duration</dt>
-  <dd>
-    <%= @the_movie.duration %> minutes
-  </dd>
-
-  <dt>Description</dt>
-  <dd>
-    <%= @the_movie.description %>
-  </dd>
-
-  <dt>Director</dt>
+  <dl>
+    <dt>Image</dt>
     <dd>
-      <% dir_id = @the_movie.director_id %>
+      <img src="<%= @the_movie.image %>" width="250">
+    </dd>
+      
 
-      <% matching_directors = Director.where({ :id => dir_id })%>
-      <% the_director = matching_directors.at(0) %>
-      <a href="/directors/<%= the_director.id%>">
-      <%= the_director.first_name %> <%= the_director.last_name %>
+    <dt>Year</dt>
+    <dd>
+      <%= @the_movie.year %>
     </dd>
 
-  <dt>Internal ID</dt>
-  <dd>
-    <%= @the_movie.id %>
-  </dd>
-</dl>
+    <dt>Duration</dt>
+    <dd>
+      <%= @the_movie.duration %> minutes
+    </dd>
+
+    <dt>Description</dt>
+    <dd>
+      <%= simple_format(@the_movie.description) %>
+    </dd>
+
+    <dt>Director</dt>
+      <dd>
+        <% dir_id = @the_movie.director_id %>
+
+        <% matching_directors = Director.where({ :id => dir_id })%>
+        <% the_director = matching_directors.at(0) %>
+        <a href="/directors/<%= the_director.id%>">
+        <%= the_director.first_name %> <%= the_director.last_name %>
+      </dd>
+
+    <dt>Internal ID</dt>
+    <dd>
+      <%= @the_movie.id %>
+    </dd>
+  </dl>
+</article>

@@ -1,11 +1,22 @@
-<h1>List of actors</h1>
+<nav aria-label="breadcrumb">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li>Actors</li>
+  </ul>
+</nav>
 
-<ul>
- <% @list_of_actors. each do |an_actor|%>
-   <li>
-     <a href="/actors/<%=an_actor.id %>">
-       <%= an_actor.first_name%> <%= an_actor.last_name%>
-      </a>
-   </li>
-  <% end %>
-</ul>
+<article>
+  <header>
+    <h1>List of actors</h1>
+  </header>
+
+  <ul>
+  <% @list_of_actors. each do |an_actor|%>
+    <li>
+      <a href="/actors/<%=an_actor.id %>">
+        <%= an_actor.first_name%> <%= an_actor.last_name%>
+        </a>
+    </li>
+    <% end %>
+  </ul>
+</article>

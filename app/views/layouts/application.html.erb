@@ -20,18 +20,25 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.conditional.min.css">
+   
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css">
+
   </head>
 
-  <body>
-    <nav>
-      <ul>
-        <li>
-          <strong>
-            <a href="/">
+  <body class="pico">
+    <header>
+    <div class ="container-two-thirds">
+      <nav>
+        <ul>
+          <li>
+            <strong>
+              <a href="/">
               Oscar Party (Queries Unstyled)
-            </a>
-          </strong>
-        </li>
+              </a>
+            </strong>
+          </li>
         <li>
           <a href="/movies">
             Movies
@@ -42,18 +49,30 @@
             Directors
           </a>
         </li>
-        <li>
-          <a href="/actors">
+          <li>
+            <a href="/actors">
             Actors
-          </a>
-        </li>
-      </ul>
+            </a>
+          </li>
+        </ul>
     </nav>
-
+  </div>
+</header>
+<main>
+  <div class ="container-two-thirds">
     <%= yield %>
+  </div>
+</main>
 
-    <footer>
-      <a href="/about">About</a>
-    </footer>
+  <footer>
+    <div class="container-two-thirds">
+      <div class="grid text-center">
+        <div>
+          <a href="/about">About</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
   </body>
 </html>
